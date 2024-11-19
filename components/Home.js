@@ -7,20 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from '@react-navigation/stack';
-
-import Table from "./components/Table";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
-const Stack = createStackNavigator();
 
 
 
+import Table from "./Table";
 
 let data = [];
 let sheets = [];
-export default function App() {
+export default function Home() {
   const [dat, setDat] = useState([]);
 
   const [sheetname, setSheetname] = useState("Eng%205%20to%208");
@@ -48,12 +42,9 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="Profile" component={Profile}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+      <View style={{ marginTop: 50 }}>
+        <Table item={sheets} />
+      </View>
   );
 }
 
