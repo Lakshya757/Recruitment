@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Table from "./components/Table";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import Entry from "./components/Entry";
 const Stack = createStackNavigator();
 
 
@@ -48,10 +49,15 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="Profile" component={Profile}/>
+    <NavigationContainer >
+      <Stack.Navigator
+        screenOptions={{
+          headerTitle:'Recruiter',
+        }}
+      >
+        <Stack.Screen name="Entry" component={Entry} />
+        <Stack.Screen name="Home" component={Home} options={{headerStyle:{alignSelf:'center'}}} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
